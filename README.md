@@ -27,6 +27,16 @@ Example Playbook
     - role: gphoto-dslr-role
 ```
 
+Using gPhoto Examples
+---------------------
+
+With your camera plugged into the USB port and switched on:
+
+```console
+# Take a picture and download to current dir
+gphoto2 --capture-image-and-download
+```
+
 License
 -------
 
