@@ -5,6 +5,8 @@ Ansible role to install gPhoto so that you can use a DSLR as a webcam.
 
 This role was derived from [Ben Chapman's blog post](https://medium.com/nerdery/dslr-webcam-setup-for-linux-9b6d1b79ae22)
 
+**NOTE: The goal was get my Canon 80D to work as a webcam - I have not been able to yet.**
+
 This was also designed as part of a desktop provisioning playbooks found here <https://github.com/billwheatley/provision-desktop>
 
 Requirements
