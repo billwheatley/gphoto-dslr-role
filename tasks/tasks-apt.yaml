@@ -1,0 +1,9 @@
+- name: (apt) Ensure packages are present
+  apt:
+    update_cache: yes
+    pkg:
+    - gphoto2
+    - v4l2loopback-utils
+    - v4l2loopback-dkms
+    - ffmpeg
+    state: present

@@ -1,0 +1,7 @@
+- name: (dnf) Ensure packages are present
+  dnf:
+    name:
+      - gphoto2
+      - v4l2loopback
+      - ffmpeg
+    state: present

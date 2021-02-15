@@ -1,0 +1,30 @@
+
+---
+- name: 'Ensure packages are installed for package manager ({{ ansible_pkg_mgr }})'
+  include_tasks: 'tasks-{{ ansible_pkg_mgr }}.yaml'
+  when: ansible_pkg_mgr in ('apt', 'dnf')
+
+- fail:
+    msg: ERROR This role is not setup to deal with package manager {{ ansible_pkg_mgr }}
+  when: ansible_pkg_mgr not in ('apt', 'dnf')
+
+# modprobe v4l2loopback exclusive_caps=1 max_buffers=2
+- name: Ensure v4l2loopback module is present
+  modprobe:
+    name: v4l2loopback
+    state: present
+    params: "exclusive_caps=1 max_buffers=2"
+
+- name: Ensure dslr-webcam is in /etc/modules
+  lineinfile:
+    path: /etc/modules
+    regexp: '^dslr-webcam'
+    line: 'dslr-webcam'
+
+- name: Ensure dslr-webcam.conf is in /etc/modprobe.d/
+  ansible.builtin.copy:
+    src: files/dslr-webcam.conf
+    dest: /etc/modprobe.d/dslr-webcam.conf
+    owner: root
+    group: root
+    mode: '0644'
