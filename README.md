@@ -3,7 +3,7 @@ gphoto-dslr-role
 
 Ansible role to install gPhoto so that you can use a DSLR as a webcam.
 
-This role was derived from [Ben Chapman's blog post](https://medium.com/nerdery/dslr-webcam-setup-for-linux-9b6d1b79ae22)
+This role was derived from [Ben Chapman's blog post](https://www.crackedthecode.co/how-to-use-your-dslr-as-a-webcam-in-linux/)
 
 This was also designed as part of a desktop provisioning playbooks found here <https://github.com/billwheatley/provision-desktop>
 
