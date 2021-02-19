@@ -5,8 +5,6 @@ Ansible role to install gPhoto so that you can use a DSLR as a webcam.
 
 This role was derived from [Ben Chapman's blog post](https://medium.com/nerdery/dslr-webcam-setup-for-linux-9b6d1b79ae22)
 
-**NOTE: The goal was get my Canon 80D to work as a webcam - I have not been able to yet.**
-
 This was also designed as part of a desktop provisioning playbooks found here <https://github.com/billwheatley/provision-desktop>
 
 Requirements
@@ -37,6 +35,16 @@ With your camera plugged into the USB port and switched on:
 ```console
 # Take a picture and download to current dir
 gphoto2 --capture-image-and-download
+
+# Find your correct video device
+v4l2-ctl --list-devices |grep v4l2loopback -A 1
+
+#Stream Video
+gphoto2 --stdout --capture-movie | ffmpeg -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video4
+
+#Stream Video with GPU acceleration
+gphoto2 --stdout --capture-movie | ffmpeg -hwaccel nvdec -c:v mjpeg_cuvid -i - -vcodec rawvideo -pix_fmt yuv420p -threads 0 -f v4l2 /dev/video4
+
 ```
 
 License
