@@ -10,7 +10,8 @@ This was also designed as part of a desktop provisioning playbooks found here <h
 Requirements
 ------------
 
-- A distribution with `dnf` or `apt`
+- A distribution with `apt`
+- NOTE: `dnf` is coming soon (this role will not fail on dnf but not do anything either)
 
 Role Variables
 --------------
