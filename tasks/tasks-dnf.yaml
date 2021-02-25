@@ -1,3 +1,7 @@
+# TODO use Copr module instead of shell: https://fedora-copr.github.io/posts/new-ansible-module-copr
+- name: (dnf) Enable Copr Repo for v4l2loopback
+  shell: dnf -y copr enable terexas/v4l2loopback
+
 - name: (dnf) Ensure packages are present
   dnf:
     name:
